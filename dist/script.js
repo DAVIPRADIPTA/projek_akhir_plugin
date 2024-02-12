@@ -19,7 +19,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/?limit=1000')
 
     const daftarPokemon = data.results;
 
-    for(let i = 0 ; i < 40 ; i++){
+    for(let i = 1 ; i <= 40 ; i++){
         const dataPokemon = daftarPokemon[i];
     // }
 
