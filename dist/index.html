@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" id="darkActive">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+  <body class="dark:bg-[#090F13] dark:text-white ">
+    <header class="w-full dark:bg-[#090F00]  bg-slate-200 border-transparent shadow-md  dark:shadow-slate-400 dark:shadow-sm fixed top-0 z-20 ">
+      <nav class="flex mx-auto items-center font-bold justify-between md:w-9/12 h-12">
+        <h1 class="ms-5 tracking-widest md:text-lg text-slate-800 dark:text-slate-400"><span class="font-normal text-blue-600">Poltek</span>Mon</h1>
+        <!-- <img onclick="darkMode()" class="me-5 w-5 dark:text-white" src="../dark.png" alt="gelap" id="darkButton"> -->
+        <div onclick="darkMode()"  id="darkButton" class="me-5">
+          <svg class="w-5  dark:fill-white stroke-cyan-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.83 33.83"><g data-name="Layer 2"><g data-name="Layer 1"><path d="M9.18,9.18a10.93,10.93,0,1,0,3.49-2.35A11,11,0,0,0,9.18,9.18Zm7.76,16.89a9.13,9.13,0,1,1-.2-18.26h.2Z" data-name="Path 4642"></path><path d="M16.92,33.83A16.92,16.92,0,1,1,33.83,16.92,16.94,16.94,0,0,1,16.92,33.83Zm0-31.13A14.22,14.22,0,1,0,31.14,16.92,14.24,14.24,0,0,0,16.92,2.7Z"></path></g></g></svg>
+        </div>
+      </nav>
+    </header>
+    <div class="flex justify-center mt-20">
+      <h1 class="uppercase tracking-widest font-bold ">daftar pokemon</h1>
+    </div>
+    <div id="listPokemon" class="mt-11 grid grid-cols-1 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0  gap-6 px-5  ">
+        <template id="data">
+            <div class="hover:z-10 md:hover:-translate-y- lg:hover:scale-105 transition-all ease-in-out flex justify-center items-center flex-col border bg-[#EFEFEF] dark:bg-gray-900 rounded-md shadow-xl mb-4">
+                <img src="" alt="" class=" h-40 ">
+                <h3 class="mb-7 capitalize"></h3>
+                <!-- <h2></h2> -->
+                <p > tipe :<span id="tipePokemon"></span></p>
+                <p > kemampuan :<span id="kemampuanPokemon"></span></p>
+            </div>
+        </template>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body class=" dark:bg-black dark:text-slate-400">
+   
+    <div class="bg-pink-500">
+      heloo
+    </div>
+    <button onclick="darkMode()" id="dark"> vlick
+    </button>
+  </body>
+  <script>
+    const dark = document.querySelector('#dark');
+    const darkActive = document.querySelector('.dark');
+
+    function darkMode () {
+        darkActive.classList.toggle('dark');
+    }
+  </script> -->
+</html>
+
