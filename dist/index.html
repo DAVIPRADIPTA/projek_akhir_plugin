@@ -1,74 +1,175 @@
 <!DOCTYPE html>
-<html lang="en" class="dark" id="darkActive">
+<html lang="en" class=" scroll-pt-[170px] md:scroll-pt-56 scroll-smooth" id="darkActive">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PoltekMon</title>
     <link rel="stylesheet" href="./css/output.css">
+ 
+
 </head>
-  <body class="dark:bg-[#090F13] dark:text-white ">
-    <header class="w-full dark:bg-[#090F00]  bg-slate-200 border-transparent shadow-md  dark:shadow-slate-400 dark:shadow-sm fixed top-0 z-20 ">
-      <nav class="flex mx-auto items-center font-bold justify-between md:w-9/12 h-12">
-        <h1 class="ms-5 tracking-widest md:text-lg text-slate-800 dark:text-slate-400"><span class="font-normal text-blue-600">Poltek</span>Mon</h1>
-        <!-- <img onclick="darkMode()" class="me-5 w-5 dark:text-white" src="../dark.png" alt="gelap" id="darkButton"> -->
-        <div onclick="darkMode()"  id="darkButton" class="me-5">
-          <svg class="w-5  dark:fill-white stroke-cyan-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.83 33.83"><g data-name="Layer 2"><g data-name="Layer 1"><path d="M9.18,9.18a10.93,10.93,0,1,0,3.49-2.35A11,11,0,0,0,9.18,9.18Zm7.76,16.89a9.13,9.13,0,1,1-.2-18.26h.2Z" data-name="Path 4642"></path><path d="M16.92,33.83A16.92,16.92,0,1,1,33.83,16.92,16.94,16.94,0,0,1,16.92,33.83Zm0-31.13A14.22,14.22,0,1,0,31.14,16.92,14.24,14.24,0,0,0,16.92,2.7Z"></path></g></g></svg>
+  <body class="dark:bg-[#07172A] text-slate-600 dark:text-[#38BDF8] ">
+    <!-- navbar start -->
+    <header class="w-full  bg-slate-200 dark:bg-[#090f00]  border-transparent shadow-sm dark:shadow-violet-400 shadow-violet-400 dark:shadow-sm z-50 sticky top-0" id="headerNavbar">
+      <nav class="flex w-full md:w-10/12 mx-auto items-center font-black justify-between  h-12 ">
+        <a id="titleNavbar" href="#listPokemon"><h1 class="basis-1/4 mx-7 font-normal text tracking-widest md:text-lg  text-blue-600 capitalize">poltek<span class="capitalize dark:text-slate-200 text-slate-800 font-extrabold">mon</span> </h1></a>
+        <div class=" hidden lg:flex items-center space-x-6  basis-1/2  justify-center me-20" >
+          <a href="#firePokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">fire</span></a> 
+          <a href="#poisonPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">poison</span></a>
+          <a href="#waterPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">water</span></a>
+          <a href="#flyingPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">flying</span></a>
+          <a href="#bugPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">bug</span></a>
+          <a href="#fairyPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">fairy</span></a>
+          <a href="#groundPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">ground</span></a>
+          <a href="#normalPokemonContainer"><span class="p-3 capitalize font-normal text-base cursor-pointer hover:text-slate-800 dark:hover:text-blue-700">normal</span></a>
+        </div>
+        <div class="flex justify-end mx-7">
+          <div onclick="darkMode()"  id="darkButton" class=" me-5 flex  w-full basis-1/4 cursor-pointer">  
+            <svg class="w-6 dark:fill-white stroke-blue-800 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.83 33.83"><g data-name="Layer 2"><g data-name="Layer 1"><path d="M9.18,9.18a10.93,10.93,0,1,0,3.49-2.35A11,11,0,0,0,9.18,9.18Zm7.76,16.89a9.13,9.13,0,1,1-.2-18.26h.2Z" data-name="Path 4642"></path><path d="M16.92,33.83A16.92,16.92,0,1,1,33.83,16.92,16.94,16.94,0,0,1,16.92,33.83Zm0-31.13A14.22,14.22,0,1,0,31.14,16.92,14.24,14.24,0,0,0,16.92,2.7Z"></path></g></g></svg>
+          </div>
+          <!-- tombol menu -->
+          <div id="humbergerButton" onclick="menu()">
+            <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px" class="w-6 md:hidden dark:fill-[#38BDF8] cursor-pointer"><path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"/></svg>
+          </div>
         </div>
       </nav>
+      <div class="fixed w-full z-40 md:hidden ps-7 leading-9 hidden bg-[#FFF5EE]  dark:bg-black border-transparent shadow-sm shadow-violet-500" id="navMobile">
+        <ul>
+          <a onclick="menu()" href="#firePokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">fire</li></a>
+          <a onclick="menu()" href="#poisonPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">poison</li></a>
+          <a onclick="menu()" href="#waterPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">water</li></a>
+          <a onclick="menu()" href="#flyingPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">flying</li></a>
+          <a onclick="menu()" href="#bugPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">bug</li></a>
+          <a onclick="menu()" href="#fairyPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">fairy</li></a>
+          <a onclick="menu()" href="#groundPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">ground</li></a>
+          <a onclick="menu()" href="#normalPokemonContainer"><li class="hover:text-slate-800 dark:hover:text-blue-600 capitalize cursor-pointer">normal</li></a>
+        </ul>
+      </div>
     </header>
-    <div class="flex justify-center mt-20">
+    <!-- navbar end -->
+
+    <!-- title start-->
+    <div class="flex justify-center mt-14 md:mt-20">
       <h1 class="uppercase tracking-widest font-bold ">daftar pokemon</h1>
     </div>
-    <div id="listPokemon" class="mt-11 grid grid-cols-1 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0  gap-6 px-5  ">
-        <template id="data">
-            <div class="hover:z-10 md:hover:-translate-y- lg:hover:scale-105 transition-all ease-in-out flex justify-center items-center flex-col border bg-[#EFEFEF] dark:bg-gray-900 rounded-md shadow-xl mb-4">
-                <img src="" alt="" class=" h-40 ">
-                <h3 class="mb-7 capitalize"></h3>
-                <p > tipe :<span id="tipePokemon"></span></p>
-                <p > kemampuan :<span id="kemampuanPokemon"></span></p>
-            </div>
-        </template>
+    <!-- titile end -->
+
+    <!-- list pokemon start -->
+    <div id="listPokemon" class=" mt-11 grid grid-cols-1 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0  gap-4 px-5 mb-10 ">
+      <template id="data" class="">
+        <div class="hover:z-10 md:hover:-translate-y- lg:hover:scale-105 transition-all ease-in-out flex justify-center items-center flex-col border bg-[#EFEFEF] dark:bg-gray-900 rounded-md shadow-xl px-4">
+          <img src="" alt="" class=" h-40 ">
+          <h3 class="mb-7 capitalize"></h3>
+          <div class="w-[90%] mb-2">
+            <p > tipe :<span id="tipePokemon"></span></p>
+            <p > kemampuan :<span id="kemampuanPokemon"></span></p>
+          </div>
+        </div>
+      </template>
     </div>
+    <!-- list pokemon end -->
+
+
+    <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+
+    <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">fire</h1>
+    
+
+    <!-- list tipe fire start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="firePokemonContainer">
+    </div>
+    <!-- list tipe fire end-->
+
+
+    <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+
+    <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">poison</h1>
+
+    <!-- list tipe poison start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="poisonPokemonContainer">
+    </div>
+    <!-- list tipe poison end-->
+
+     <!-- buat garis -->
+     <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+     <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">water</h1>
+
+    <!-- list tipe water start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="waterPokemonContainer">
+    </div>
+    <!-- list tipe water end-->
+
+    <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+     <!-- title tipe pokemon -->
+     <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">flying</h1>
+
+     <!-- list tipe flying start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="flyingPokemonContainer">
+    </div>
+    <!-- list tipe flying end -->
+
+    <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+    <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">bug</h1>
+
+     <!-- list tipe bug start-->
+     <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="bugPokemonContainer">
+    </div>
+    <!-- list tipe bug end -->
+
+    <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+    <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">fairy</h1>
+
+    <!-- list tipe fairy start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="fairyPokemonContainer">
+    </div>
+    <!-- list tipe fairy end -->
+
+     <!-- buat garis -->
+     <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+      <!-- title tipe pokemon -->
+    <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">ground</h1>
+
+     <!-- list tipe ground start-->
+     <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-10 gap-6 px-5" id="groundPokemonContainer">
+    </div>
+    <!-- list tipe ground end -->
+
+
+      <!-- buat garis -->
+    <div class="absolute lg:left-44 left-10 lg:right-44 right-10 h-tipis bg-black dark:bg-white "></div>
+
+     <!-- title tipe pokemon -->
+     <h1 class=" items-center justify-center flex mt-16 md:mt-28 font-bold text-3xl">normal</h1>
+
+      <!-- list tipe normal start-->
+    <div class="mt-16 md:mt-28 grid grid-cols-2 md:grid-cols-3 md:px-16 lg:grid-cols-4 lg:w-9/12 lg:mx-auto lg:px-0 mb-24 gap-6 px-5" id="normalPokemonContainer">
+    </div>
+    <!-- list tipe normal end -->
+
+
+     
+    <div class="flex justify-center mb-2"> created with <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Love"><path fill="#f30808" d="M4.379 12.274A4.841 4.841 0 0 1 3 8.89C3 6.189 5.216 4 7.95 4c1.674 0 3.154.82 4.05 2.077A4.962 4.962 0 0 1 16.05 4C18.784 4 21 6.189 21 8.889a4.845 4.845 0 0 1-1.507 3.512L12 20l-7.621-7.726Z" class=" color000000 svgShape"></path></svg>by @DAVI PRADIPTA</div>
+  
+  
   </body>
   <script src="./script.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <body class=" dark:bg-black dark:text-slate-400">
-   
-    <div class="bg-pink-500">
-      heloo
-    </div>
-    <button onclick="darkMode()" id="dark"> vlick
-    </button>
-  </body>
-  <script>
-    const dark = document.querySelector('#dark');
-    const darkActive = document.querySelector('.dark');
-
-    function darkMode () {
-        darkActive.classList.toggle('dark');
-    }
-  </script> -->
 </html>
 
