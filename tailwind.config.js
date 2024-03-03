@@ -6,6 +6,9 @@ module.exports = {
     extend: {
       height: {
         'tipis': '2px',
+      },
+      borderRadius: {
+        '4xl': '2rem'
       }
     },
   },
