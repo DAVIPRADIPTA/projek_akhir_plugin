@@ -25,22 +25,31 @@ titleNavbar.addEventListener("click", function(){
 
 document.addEventListener('click', function(event) {
     const navbar = document.querySelector('#headerNavbar');
+    const closeButton = document.getElementById('close');
+
     const targetElement = event.target; 
     // console.log(targetElement)// Element yang diklik
 
     // Periksa apakah element yang diklik adalah navbar atau bagian dari navbar
     const isClickInsideNavbar = navbar.contains(targetElement);
+    const isClickInsidePokemonSearchMobile = pokemonSearchMobile.contains(targetElement)
 
     // Jika tidak, sembunyikan navbar
     if (!isClickInsideNavbar) {
         navMobile.classList.add ('hidden')
     }
+    if (!isClickInsidePokemonSearchMobile && !isClickInsideNavbar ){
+        pokemonSearchMobile.classList.add('hidden')
+    }
 });
 
 const search = document.getElementById('search');
 const form = document.getElementById('form');
-const hasilSearch = document.getElementById('pokemonSearch')
 const pokemonSearch = document.getElementById('pokemonSearch')
+
+const searchMobile = document.getElementById('searchMobile');
+const formMobile = document.getElementById('formMobile');
+const pokemonSearchMobile = document.getElementById('pokemonSearchMobile')
 
 
 function getNamePokemon (namaPokemon){
@@ -77,7 +86,7 @@ function getNamePokemon (namaPokemon){
         const cardElement = document.createElement('div');
 
         // styling card
-        cardElement.classList.add('flex', 'justify-center', 'items-center', 'flex-col', 'border', 'rounded-md', 'shadow-xl', 'dark:bg-gray-900', 'bg-[#EFEFEF]', 'p-4', 'text-center', 'w-80', 'h-[310px]');
+        cardElement.classList.add('flex', 'justify-center', 'items-center', 'flex-col', 'border', 'rounded-md',  'shadow-xl', 'dark:bg-gray-900', 'bg-[#EFEFEF]', 'p-4', 'text-center', 'h-[310px]','justify-self-center');
        
         // menampung img dan nama kedalam card 
         cardElement.appendChild(imgElement);
@@ -86,11 +95,15 @@ function getNamePokemon (namaPokemon){
         cardElement.appendChild(abilityElement);
 
         pokemonSearch.appendChild(cardElement);
+
+        const cloneCardElement = cardElement.cloneNode(true);
+        pokemonSearchMobile.appendChild(cloneCardElement);
+        
        
     })
     .catch(error =>{
         console.log(error)
-        alert('pokemon dengan nama tersebut tidak ditemukan silahkan masukan nama pokemon dengan benar')
+        alert('pokemon dengan nama "'+namaPokemon +'" tidak ditemukan silahkan masukan nama pokemon dengan benar')
     })
 }
 
@@ -100,11 +113,39 @@ form.addEventListener('submit',function(e){
          alert('masukan nama pokemon')
     }
     else{
-         pokemonSearch.innerHTML="";     
-         getNamePokemon(search.value)
-         search.value=null
+        pokemonSearchMobile.innerHTML="";
+        pokemonSearch.innerHTML="";     
+        getNamePokemon(search.value)
+        search.value=null
     }
 });
+
+const closeButton = document.getElementById('close')
+
+
+formMobile.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(searchMobile.value === ""){
+         alert('masukan nama pokemon')
+    }
+    else{
+        pokemonSearchMobile.classList.add('flex');
+        pokemonSearchMobile.classList.remove('hidden')
+        pokemonSearchMobile.innerHTML="";
+        pokemonSearch.innerHTML=""; 
+        pokemonSearchMobile.appendChild(closeButton)
+        closeButton.innerHTML="<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' id='close'><path fill='#000' d='M7.05 7.05a1 1 0 0 0 0 1.414L10.586 12 7.05 15.536a1 1 0 1 0 1.414 1.414L12 13.414l3.536 3.536a1 1 0 0 0 1.414-1.414L13.414 12l3.536-3.536a1 1 0 0 0-1.414-1.414L12 10.586 8.464 7.05a1 1 0 0 0-1.414 0Z'></path></svg>";     
+        getNamePokemon(searchMobile.value)
+        searchMobile.value=null
+    }
+})
+
+
+
+closeButton.addEventListener('click', function(e){
+    e.stopPropagation
+    pokemonSearchMobile.classList.add('hidden')
+})
 
 
 
